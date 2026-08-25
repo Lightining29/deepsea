@@ -1,0 +1,23 @@
+{
+  "name": "deesea-adventures",
+  "version": "1.0.0",
+  "description": "Deep Sea Adventures MERN Application",
+  "main": "server/server.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "node server/server.js",
+    "client": "npm run dev --prefix client",
+    "build": "npm run build --prefix client"
+  },
+  "keywords": [
+    "mern",
+    "deep-sea",
+    "glassmorphism",
+    "react"
+  ],
+  "author": "Antigravity",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
