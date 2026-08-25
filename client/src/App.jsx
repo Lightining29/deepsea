@@ -197,6 +197,60 @@ export default function App() {
     }
   };
 
+  const handleSelectTab = (tab) => {
+    if (tab === 'admin') {
+      setActiveTab('admin');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    if (tab === 'dashboard' || tab === 'bookings') {
+      if (!currentUser) {
+        setIsAuthModalOpen(true);
+        return;
+      }
+      setActiveTab('dashboard');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    if (tab === 'wishlist') {
+      setActiveTab('wishlist');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    if (tab === 'profile') {
+      if (currentUser) {
+        setActiveTab('dashboard');
+      } else {
+        setIsAuthModalOpen(true);
+      }
+      return;
+    }
+
+    // Default to main experience
+    setActiveTab('home');
+
+    setTimeout(() => {
+      if (tab === 'home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (tab === 'destinations' || tab === 'deals') {
+        const el = document.getElementById('destinations-grid');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      } else if (tab === 'experiences') {
+        const el = document.getElementById('experiences');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      } else if (tab === 'submersibles') {
+        const el = document.getElementById('submersibles');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      } else if (tab === 'depth-zones') {
+        const el = document.getElementById('depth-zones');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      } else if (tab === 'about') {
+        const el = document.getElementById('footer');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 120);
+  };
+
   const isLight = theme === 'light';
 
   return (
@@ -242,12 +296,7 @@ export default function App() {
         currentUser={currentUser}
         onOpenAuthModal={() => setIsAuthModalOpen(true)}
         onLogout={handleLogout}
-        onSelectTab={(tab) => {
-          setActiveTab(tab);
-          if (tab === 'destinations' || tab === 'home') {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }
-        }}
+        onSelectTab={handleSelectTab}
       />
 
       {/* Slide-In & Slide-Out Mobile Navigation Drawer */}
@@ -255,7 +304,7 @@ export default function App() {
         isOpen={isMobileDrawerOpen}
         onClose={() => setIsMobileDrawerOpen(false)}
         activeTab={activeTab}
-        onSelectTab={(tab) => setActiveTab(tab)}
+        onSelectTab={handleSelectTab}
         onOpenBookingModal={() => handleOpenBooking()}
         wishlistCount={wishlistIds.length}
         theme={theme}
@@ -501,23 +550,16 @@ export default function App() {
       {/* Floating Mobile Bottom Navigation Bar */}
       <MobileBottomNav
         activeTab={activeTab}
-        onSelectTab={(tab) => {
-          setActiveTab(tab);
-          if (tab === 'home' || tab === 'destinations') {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }
-        }}
+        onSelectTab={handleSelectTab}
         onOpenBookingModal={() => handleOpenBooking()}
         wishlistCount={wishlistIds.length}
+        currentUser={currentUser}
         theme={theme}
       />
 
       {/* Footer */}
       <Footer
-        onSelectTab={(tab) => {
-          setActiveTab(tab);
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }}
+        onSelectTab={handleSelectTab}
         onOpenBookingModal={() => handleOpenBooking()}
         theme={theme}
       />
