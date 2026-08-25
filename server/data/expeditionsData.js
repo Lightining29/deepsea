@@ -11,15 +11,17 @@ export const expeditionsData = [
     pricePerPerson: 49500,
     rating: 4.98,
     reviewsCount: 142,
-    badge: "Most Extreme",
-    badgeColor: "from-sky-500 to-blue-600",
+    badge: "🔥 20% OFF • ONLY 2 SEATS LEFT",
+    badgeColor: "from-rose-500 via-red-500 to-amber-500",
+    offerTag: "Save $10,000 Early Bird",
     vessel: "Triton 36,000/2 (Limiting Factor)",
     maxGuests: 2,
     image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80",
     gallery: [
       "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1559827291-72ee739d0d9a?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
     ],
     highlights: [
       "Titanium pressure sphere certified for 1,100 atmospheres",
@@ -43,14 +45,16 @@ export const expeditionsData = [
     pricePerPerson: 8900,
     rating: 4.95,
     reviewsCount: 284,
-    badge: "Popular Night Dive",
-    badgeColor: "from-emerald-400 to-teal-600",
+    badge: "✨ VIP SUB UPGRADE INCLUDED",
+    badgeColor: "from-emerald-400 via-teal-500 to-cyan-600",
+    offerTag: "Free 8K VR Package",
     vessel: "DeepFlight Super Falcon 3S",
     maxGuests: 3,
     image: "https://images.unsplash.com/photo-1559827291-72ee739d0d9a?auto=format&fit=crop&w=800&q=80",
     gallery: [
       "https://images.unsplash.com/photo-1559827291-72ee739d0d9a?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80"
     ],
     highlights: [
       "Panoramic 360° acrylic dome cockpit with low-light night optics",
@@ -74,14 +78,16 @@ export const expeditionsData = [
     pricePerPerson: 32000,
     rating: 4.99,
     reviewsCount: 96,
-    badge: "Historic Wonder",
-    badgeColor: "from-amber-400 to-orange-600",
+    badge: "⚡ 15% OFF SPECIAL CHARTER",
+    badgeColor: "from-amber-400 via-orange-500 to-rose-600",
+    offerTag: "Historic Expedition Deal",
     vessel: "Mir-I Deep Submersible Explorer",
     maxGuests: 2,
     image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80",
     gallery: [
       "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=800&q=80"
     ],
     highlights: [
       "Fly past the iconic forward bow and anchor chains",
@@ -105,13 +111,15 @@ export const expeditionsData = [
     pricePerPerson: 14500,
     rating: 4.92,
     reviewsCount: 168,
-    badge: "Volcanic Hotspot",
-    badgeColor: "from-red-500 to-rose-700",
+    badge: "🌋 HOT DEAL • VOLCANIC SAFARI",
+    badgeColor: "from-red-500 via-rose-600 to-purple-700",
+    offerTag: "Volcanic Hotspot Discount",
     vessel: "Alvin DSV-2 Enhanced",
     maxGuests: 2,
     image: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=800&q=80",
     gallery: [
-      "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1559827291-72ee739d0d9a?auto=format&fit=crop&w=800&q=80"
     ],
     highlights: [
       "Towering 350°C mineral chimneys spitting black sulfide smoke",
@@ -135,13 +143,15 @@ export const expeditionsData = [
     pricePerPerson: 6500,
     rating: 4.96,
     reviewsCount: 310,
-    badge: "Treasure & Wreck",
-    badgeColor: "from-yellow-400 to-amber-600",
+    badge: "💎 POPULAR LUXURY CHARTER",
+    badgeColor: "from-amber-400 via-yellow-500 to-teal-500",
+    offerTag: "Free Champagne Toast",
     vessel: "Seamagine Aurora-6 Luxury Pod",
     maxGuests: 5,
     image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
     gallery: [
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80"
     ],
     highlights: [
       "Intact bronze cannons embedded in deep sea glass sponge reefs",
@@ -165,13 +175,15 @@ export const expeditionsData = [
     pricePerPerson: 18900,
     rating: 4.97,
     reviewsCount: 88,
-    badge: "Polar Deep",
-    badgeColor: "from-blue-400 to-indigo-600",
+    badge: "❄️ POLAR EXCLUSIVE • 30% OFF",
+    badgeColor: "from-blue-400 via-cyan-500 to-indigo-600",
+    offerTag: "Includes Thermal Arctic Gear",
     vessel: "Nautilus Deep Polar-X",
     maxGuests: 3,
     image: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=800&q=80",
     gallery: [
-      "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1559827291-72ee739d0d9a?auto=format&fit=crop&w=800&q=80"
     ],
     highlights: [
       "Dive directly beneath 4-meter thick pack ice into freezing abyss",

@@ -39,44 +39,44 @@ export default function Navbar({
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled 
           ? isLight
-            ? 'py-3 bg-white/85 backdrop-blur-xl border-b border-sky-200/80 shadow-[0_4px_25px_rgba(14,165,233,0.08)]'
-            : 'py-3 bg-abyss-950/80 backdrop-blur-xl border-b border-cyan-500/20 shadow-[0_8px_30px_rgba(0,0,0,0.7)]' 
+            ? 'py-2.5 bg-white/90 backdrop-blur-xl border-b border-sky-200 shadow-md'
+            : 'py-2.5 bg-slate-950/90 backdrop-blur-xl border-b border-cyan-500/20 shadow-lg' 
           : isLight
-            ? 'py-4 bg-gradient-to-b from-white/90 via-white/50 to-transparent backdrop-blur-xs'
-            : 'py-5 bg-gradient-to-b from-abyss-950/90 via-abyss-950/40 to-transparent backdrop-blur-xs'
+            ? 'py-3.5 bg-gradient-to-b from-white/90 via-white/50 to-transparent'
+            : 'py-3.5 bg-gradient-to-b from-slate-950/90 via-slate-950/40 to-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
           {/* Brand Logo */}
           <a 
             href="#" 
             onClick={(e) => { e.preventDefault(); onSelectTab('home'); }}
-            className="flex items-center gap-3 group focus:outline-none"
+            className="flex items-center gap-2.5 group focus:outline-none shrink-0"
           >
             <div className="relative">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-400 via-cyan-500 to-blue-600 p-[2px] shadow-[0_0_20px_rgba(14,165,233,0.35)] group-hover:shadow-[0_0_30px_rgba(14,165,233,0.6)] transition-all duration-300">
-                <div className={`w-full h-full rounded-[10px] flex items-center justify-center ${isLight ? 'bg-white' : 'bg-abyss-950'}`}>
-                  <Anchor className="w-5 h-5 text-sky-500 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300" />
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-sky-400 via-cyan-500 to-blue-600 p-[2px] shadow-md">
+                <div className={`w-full h-full rounded-[10px] flex items-center justify-center ${isLight ? 'bg-white' : 'bg-slate-950'}`}>
+                  <Anchor className="w-4 h-4 sm:w-5 sm:h-5 text-sky-500 group-hover:scale-110 transition-transform duration-300" />
                 </div>
               </div>
-              <span className="absolute -top-1 -right-1 flex h-3 w-3">
+              <span className="absolute -top-0.5 -right-0.5 flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-sky-500"></span>
               </span>
             </div>
 
             <div>
-              <span className={`text-xl font-bold font-display tracking-tight transition-all ${
+              <span className={`text-lg sm:text-xl font-bold font-display tracking-tight transition-all ${
                 isLight 
-                  ? 'bg-gradient-to-r from-slate-900 via-sky-800 to-teal-700 bg-clip-text text-transparent' 
-                  : 'bg-gradient-to-r from-white via-cyan-100 to-teal-300 bg-clip-text text-transparent'
+                  ? 'text-slate-900' 
+                  : 'text-white'
               }`}>
                 AbyssX
               </span>
-              <span className={`block text-[10px] font-mono tracking-widest uppercase font-semibold ${
-                isLight ? 'text-sky-600' : 'text-cyan-400/80'
+              <span className={`block text-[9px] sm:text-[10px] font-mono tracking-widest uppercase font-bold ${
+                isLight ? 'text-sky-600' : 'text-cyan-400'
               }`}>
                 Deep Sea Expeditions
               </span>
@@ -113,7 +113,7 @@ export default function Navbar({
               </button>
             ))}
 
-            {/* Admin or Dashboard link in desktop nav */}
+            {/* Admin link */}
             {currentUser?.role === 'admin' && (
               <button
                 onClick={() => onSelectTab('admin')}
@@ -141,10 +141,10 @@ export default function Navbar({
             )}
           </nav>
 
-          {/* Right Action Bar */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          {/* Right Action Bar (Spacious and responsive for mobile) */}
+          <div className="flex items-center gap-1.5 sm:gap-2.5">
             
-            {/* Live Depth Indicator Pill */}
+            {/* Live Depth Indicator (Desktop only) */}
             <div className={`hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full border backdrop-blur-md ${
               isLight 
                 ? 'bg-sky-50 border-sky-200 text-sky-800' 
@@ -160,7 +160,7 @@ export default function Navbar({
             <button
               onClick={onToggleTheme}
               title={isLight ? "Switch to Deep Abyss Dark Theme" : "Switch to Sky Blue Light Theme"}
-              className={`p-2 rounded-full border transition-all bounce-pop ${
+              className={`p-2 rounded-full border transition-all scale-interact ${
                 isLight
                   ? 'bg-sky-50 hover:bg-sky-100 border-sky-200 text-sky-700 shadow-sm'
                   : 'bg-white/5 hover:bg-white/10 border-white/10 text-amber-300'
@@ -173,7 +173,7 @@ export default function Navbar({
             <button 
               onClick={() => onSelectTab('wishlist')}
               title="View saved expeditions"
-              className={`relative p-2 rounded-full border transition-all bounce-pop ${
+              className={`relative p-2 rounded-full border transition-all scale-interact ${
                 isLight
                   ? 'bg-sky-50 hover:bg-sky-100 border-sky-200 text-slate-700 hover:text-rose-600'
                   : 'bg-white/5 hover:bg-cyan-500/10 border-white/10 text-slate-300 hover:text-cyan-300'
@@ -187,9 +187,9 @@ export default function Navbar({
               )}
             </button>
 
-            {/* User Profile / Login Button */}
+            {/* User Profile / Login (Desktop Only: md:flex) */}
             {currentUser ? (
-              <div className="relative">
+              <div className="relative hidden md:block">
                 <button
                   onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
                   className="flex items-center gap-2 p-1 pl-2 pr-2.5 rounded-full border border-sky-300 dark:border-cyan-400/40 bg-sky-50 dark:bg-slate-900 hover:scale-105 transition-all shadow-sm"
@@ -199,7 +199,7 @@ export default function Navbar({
                     alt={currentUser.name}
                     className="w-6 h-6 rounded-full object-cover border border-sky-400"
                   />
-                  <span className="text-xs font-bold font-display max-w-[80px] truncate hidden sm:inline">
+                  <span className="text-xs font-bold font-display max-w-[80px] truncate">
                     {currentUser.name.split(' ')[0]}
                   </span>
                 </button>
@@ -232,7 +232,7 @@ export default function Navbar({
                         setIsUserMenuOpen(false);
                         onSelectTab('dashboard');
                       }}
-                      className="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-sky-50 dark:hover:bg-white/5 flex items-center gap-2 text-sky-600"
+                      className="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-sky-50 dark:hover:bg-white/5 flex items-center gap-2 text-sky-600 font-semibold"
                     >
                       <LayoutDashboard className="w-3.5 h-3.5" />
                       <span>Explorer Dashboard</span>
@@ -243,7 +243,7 @@ export default function Navbar({
                         setIsUserMenuOpen(false);
                         onLogout();
                       }}
-                      className="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-rose-50 dark:hover:bg-rose-950/30 text-rose-500 flex items-center gap-2"
+                      className="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-rose-50 dark:hover:bg-rose-950/30 text-rose-500 font-semibold flex items-center gap-2"
                     >
                       <LogOut className="w-3.5 h-3.5" />
                       <span>Log Out</span>
@@ -254,16 +254,16 @@ export default function Navbar({
             ) : (
               <button
                 onClick={onOpenAuthModal}
-                className="px-3.5 py-2 rounded-full border border-sky-300 dark:border-cyan-400/40 text-xs font-bold font-mono text-sky-700 dark:text-cyan-300 hover:bg-sky-50 dark:hover:bg-white/5 transition-all"
+                className="hidden md:inline-flex px-3.5 py-2 rounded-full border border-sky-300 dark:border-cyan-400/40 text-xs font-bold font-mono text-sky-700 dark:text-cyan-300 hover:bg-sky-50 dark:hover:bg-white/5 transition-all scale-interact"
               >
                 Explorer Login
               </button>
             )}
 
-            {/* Primary Action Button */}
+            {/* Desktop Book Dive CTA */}
             <button
               onClick={() => onOpenBookingModal()}
-              className="relative group overflow-hidden px-4 sm:px-5 py-2 rounded-full font-medium text-xs sm:text-sm text-slate-950 font-display font-semibold transition-all duration-300 shadow-[0_4px_16px_rgba(14,165,233,0.4)] hover:shadow-[0_6px_25px_rgba(14,165,233,0.7)] bounce-pop"
+              className="hidden md:inline-flex relative group overflow-hidden px-4 sm:px-5 py-2 rounded-full font-medium text-xs sm:text-sm text-slate-950 font-display font-semibold transition-all shadow-[0_4px_16px_rgba(14,165,233,0.4)] hover:shadow-[0_6px_25px_rgba(14,165,233,0.7)] scale-interact"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-sky-400 via-cyan-300 to-teal-300 group-hover:scale-105 transition-transform duration-300"></span>
               <span className="relative flex items-center gap-1.5">
@@ -272,17 +272,17 @@ export default function Navbar({
               </span>
             </button>
 
-            {/* Mobile Hamburger Menu Toggle */}
+            {/* Mobile Hamburger Menu Toggle (Clean, properly padded, not pushed off screen) */}
             <button
               onClick={onOpenMobileDrawer}
               aria-label="Open Navigation Drawer"
-              className={`p-2 rounded-xl border lg:hidden bounce-pop ${
+              className={`p-2 sm:p-2.5 rounded-xl border lg:hidden scale-interact shrink-0 ml-1 ${
                 isLight 
-                  ? 'bg-sky-50 border-sky-200 text-slate-800' 
-                  : 'bg-white/5 border-white/10 text-slate-200 hover:text-cyan-300'
+                  ? 'bg-sky-500 text-white border-sky-500 shadow-sm hover:bg-sky-600' 
+                  : 'bg-cyan-500/20 border-cyan-400 text-cyan-300 hover:bg-cyan-500/30'
               }`}
             >
-              <Menu className="w-5 h-5" />
+              <Menu className="w-5 h-5 stroke-[2.5]" />
             </button>
 
           </div>

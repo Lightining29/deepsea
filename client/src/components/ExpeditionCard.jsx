@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   Heart, Star, MapPin, Compass, Clock, ArrowUpRight, 
-  Anchor, Layers, CheckCircle2, Sparkles, ZoomIn 
+  Anchor, Layers, CheckCircle2, Sparkles, ZoomIn, Tag 
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -23,22 +23,16 @@ export default function ExpeditionCard({
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.85, y: 30 }}
-      whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ type: "spring", stiffness: 220, damping: 18 }}
-      whileHover={{ scale: 1.03, y: -6 }}
-      whileTap={{ scale: 0.96 }}
+    <div
       onClick={handleCardClick}
-      className={`group relative rounded-3xl overflow-hidden border-2 cursor-pointer transition-all duration-300 flex flex-col justify-between slice-card-diagonal ${
+      className={`group relative rounded-3xl overflow-hidden border-2 cursor-pointer transition-colors duration-300 flex flex-col justify-between slice-card-diagonal ${
         isLight
-          ? 'bg-white border-sky-200 hover:border-sky-400 shadow-[0_8px_30px_rgba(14,165,233,0.12)] hover:shadow-[0_20px_50px_rgba(14,165,233,0.25)]'
-          : 'bg-slate-900/90 border-cyan-500/30 hover:border-cyan-400 shadow-[0_10px_30px_rgba(0,0,0,0.6)] hover:shadow-[0_20px_50px_rgba(0,240,255,0.3)]'
+          ? 'bg-white border-sky-200 hover:border-sky-400 shadow-[0_8px_30px_rgba(14,165,233,0.12)]'
+          : 'bg-slate-900/90 border-cyan-500/30 hover:border-cyan-400 shadow-[0_10px_30px_rgba(0,0,0,0.6)]'
       }`}
     >
       
-      {/* Top Image Section with Intense Zoom-In Effect */}
+      {/* Top Image Section with Intense Zoom-In Scale Effect on Hover */}
       <div className="relative h-64 overflow-hidden bg-slate-900">
         <img 
           src={imgSrc} 
@@ -63,7 +57,7 @@ export default function ExpeditionCard({
           <span>{expedition.depth}</span>
         </div>
 
-        {/* Wishlist Heart Button with Bouncy Spring Feedback & Scale In/Out */}
+        {/* Wishlist Heart Button with Scale In/Out on Button */}
         <button
           onClick={(e) => {
             e.stopPropagation();
@@ -79,11 +73,12 @@ export default function ExpeditionCard({
           <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-white' : ''}`} />
         </button>
 
-        {/* Featured Tag Badge */}
+        {/* PROMOTIONAL OFFER BADGE */}
         {expedition.badge && (
           <div className="absolute bottom-3 left-3">
-            <span className={`px-3 py-1 rounded-md text-[10px] font-mono font-bold uppercase tracking-wider text-white bg-gradient-to-r ${expedition.badgeColor || 'from-sky-500 to-blue-600'} shadow-md`}>
-              {expedition.badge}
+            <span className={`px-3 py-1 rounded-lg text-[10px] font-mono font-extrabold uppercase tracking-wider text-white bg-gradient-to-r ${expedition.badgeColor || 'from-sky-500 to-blue-600'} shadow-lg border border-white/20 flex items-center gap-1`}>
+              <Tag className="w-3 h-3" />
+              <span>{expedition.badge}</span>
             </span>
           </div>
         )}
@@ -140,7 +135,7 @@ export default function ExpeditionCard({
           </div>
         </div>
 
-        {/* Pricing and Action Buttons with Scale In/Out */}
+        {/* Pricing and Action Buttons with Scale In/Out on Buttons only */}
         <div className={`pt-3 border-t flex items-center justify-between ${
           isLight ? 'border-sky-100' : 'border-cyan-500/20'
         }`}>
@@ -184,6 +179,6 @@ export default function ExpeditionCard({
 
       </div>
 
-    </motion.div>
+    </div>
   );
 }
