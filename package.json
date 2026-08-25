@@ -1,23 +1,31 @@
 {
   "name": "deesea-adventures",
   "version": "1.0.0",
-  "description": "Deep Sea Adventures MERN Application",
+  "description": "Deep Sea Adventures MERN Platform",
   "main": "server/server.js",
+  "type": "module",
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "node server/server.js",
     "client": "npm run dev --prefix client",
-    "build": "npm run build --prefix client"
+    "build": "npm install && npm install --prefix client && npm run build --prefix client",
+    "start": "node server/server.js"
   },
   "keywords": [
     "mern",
     "deep-sea",
     "glassmorphism",
-    "react"
+    "react",
+    "express",
+    "render"
   ],
-  "author": "Antigravity",
+  "author": "Lightining29",
   "license": "MIT",
   "dependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.1"
   }
 }
