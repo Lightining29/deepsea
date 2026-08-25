@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 import { expeditionsData, submersiblesData, depthZones, statsData } from './data/expeditionsData.js';
 import { Expedition } from './models/Expedition.js';
@@ -500,14 +501,39 @@ app.delete('/api/bookings/:reference', async (req, res) => {
 });
 
 // Serve Vite client static build in production
-const clientDistPath = path.join(__dirname, '../client/dist');
+const clientDistPath = path.resolve(__dirname, '../client/dist');
 app.use(express.static(clientDistPath));
 
-app.get('*', (req, res, next) => {
+app.get('*', (req, res) => {
   if (req.path.startsWith('/api')) {
-    return next();
+    return res.status(404).json({ success: false, message: 'API endpoint not found' });
   }
-  res.sendFile(path.join(clientDistPath, 'index.html'));
+  const indexPath = path.join(clientDistPath, 'index.html');
+  if (fs.existsSync(indexPath)) {
+    return res.sendFile(indexPath);
+  }
+  res.status(200).send(`
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>AbyssX Deep Sea Expeditions</title>
+        <style>
+          body { background: #000814; color: #38bdf8; font-family: system-ui, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; text-align: center; }
+          .box { background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(56, 189, 248, 0.3); padding: 40px; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
+          h1 { color: #ffffff; font-size: 28px; margin-bottom: 12px; }
+          p { color: #94a3b8; font-size: 14px; }
+        </style>
+      </head>
+      <body>
+        <div class="box">
+          <h1>🔱 AbyssX Deep Sea Expeditions</h1>
+          <p>Initial telemetry calibration in progress. Please refresh in a moment.</p>
+        </div>
+      </body>
+    </html>
+  `);
 });
 
 app.listen(PORT, () => {
