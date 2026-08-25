@@ -82,19 +82,12 @@ export default function AuthModal({ isOpen, onClose, onLoginSuccess, initialMode
           className="fixed inset-0 bg-slate-950/85 backdrop-blur-xl"
         />
 
-        {/* POP IN MODAL (Small ➔ BIG ➔ Normal) */}
+        {/* Clean, Elegant Slide-Up Modal */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.2 }}
-          animate={{ 
-            opacity: 1, 
-            scale: [0.2, 1.18, 0.95, 1] 
-          }}
-          exit={{ opacity: 0, scale: 0.3 }}
-          transition={{ 
-            duration: 0.5,
-            times: [0, 0.65, 0.85, 1],
-            ease: "easeInOut"
-          }}
+          initial={{ opacity: 0, y: 25, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 20, scale: 0.98 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
           className={`relative w-full max-w-md rounded-3xl border-2 shadow-2xl overflow-hidden z-10 cutout-corner-tr ${
             isLight
               ? 'bg-white border-sky-400 text-slate-900 shadow-[0_25px_80px_rgba(14,165,233,0.4)]'

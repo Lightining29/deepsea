@@ -30,19 +30,12 @@ export default function ExpeditionDetailModal({ expedition, isOpen, onClose, onB
           className="fixed inset-0 bg-slate-950/75 backdrop-blur-xl"
         />
 
-        {/* POP IN MODAL (Small ➔ BIG ➔ Normal) */}
+        {/* Clean, Elegant Slide-Up Modal */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.2 }}
-          animate={{ 
-            opacity: 1, 
-            scale: [0.2, 1.18, 0.95, 1] 
-          }}
-          exit={{ opacity: 0, scale: 0.3 }}
-          transition={{ 
-            duration: 0.55,
-            times: [0, 0.65, 0.85, 1],
-            ease: "easeInOut"
-          }}
+          initial={{ opacity: 0, y: 25, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 20, scale: 0.98 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
           className={`relative w-full max-w-4xl rounded-3xl backdrop-blur-2xl border shadow-2xl overflow-hidden z-10 max-h-[90vh] flex flex-col cutout-corner-tr ${
             isLight
               ? 'bg-white border-sky-300 text-slate-800 shadow-[0_25px_80px_rgba(14,165,233,0.35)]'

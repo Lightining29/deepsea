@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { 
   Heart, Star, MapPin, Compass, Clock, ArrowUpRight, 
-  Anchor, Layers, CheckCircle2, Sparkles, ZoomIn, Tag 
+  Anchor, Layers, CheckCircle2, Sparkles, Tag 
 } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 const FALLBACK_SEA_IMAGE = "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80";
 
@@ -32,38 +31,31 @@ export default function ExpeditionCard({
       }`}
     >
       
-      {/* Top Image Section with Intense Zoom-In Scale Effect on Hover */}
+      {/* Top Image Section (Natural, clean rendering without jarring zoom in/out) */}
       <div className="relative h-64 overflow-hidden bg-slate-900">
         <img 
           src={imgSrc} 
           alt={expedition.title} 
           onError={() => setImgSrc(FALLBACK_SEA_IMAGE)}
-          className="w-full h-full object-cover transform group-hover:scale-125 transition-transform duration-700 ease-out filter brightness-95 group-hover:brightness-105"
+          className="w-full h-full object-cover transition-all duration-300 filter brightness-95 group-hover:brightness-105"
         />
         
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
 
-        {/* Hover Zoom-In Indicator Icon */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-          <div className="p-3 rounded-full bg-slate-950/80 backdrop-blur-md border border-sky-400/80 text-sky-300 shadow-xl pop-in-spring">
-            <ZoomIn className="w-6 h-6 animate-pulse" />
-          </div>
-        </div>
-
-        {/* Depth Badge with Sliced Cutout Shape */}
+        {/* Depth Badge */}
         <div className="absolute top-3 left-3 bg-slate-950/85 backdrop-blur-md border border-sky-400/60 text-sky-300 px-3.5 py-1 rounded-full text-xs font-mono font-bold flex items-center gap-1.5 shadow-lg slice-badge-angle">
           <Anchor className="w-3.5 h-3.5 text-sky-400" />
           <span>{expedition.depth}</span>
         </div>
 
-        {/* Wishlist Heart Button with Scale In/Out on Button */}
+        {/* Wishlist Heart Button with Bouncy Pop */}
         <button
           onClick={(e) => {
             e.stopPropagation();
             onToggleWishlist(expedition.id);
           }}
-          className={`absolute top-3 right-3 p-2.5 rounded-full backdrop-blur-md border transition-all duration-300 shadow-lg scale-interact ${
+          className={`absolute top-3 right-3 p-2.5 rounded-full backdrop-blur-md border transition-all duration-300 shadow-lg btn-bounce ${
             isWishlisted
               ? 'bg-rose-500 border-rose-400 text-white fill-white shadow-[0_0_15px_rgba(244,63,94,0.7)]'
               : 'bg-slate-950/70 border-white/20 text-white hover:text-rose-400 hover:bg-slate-900'
@@ -135,7 +127,7 @@ export default function ExpeditionCard({
           </div>
         </div>
 
-        {/* Pricing and Action Buttons with Scale In/Out on Buttons only */}
+        {/* Pricing and Action Buttons with Pop & Bounce on Booking Button */}
         <div className={`pt-3 border-t flex items-center justify-between ${
           isLight ? 'border-sky-100' : 'border-cyan-500/20'
         }`}>
@@ -155,7 +147,7 @@ export default function ExpeditionCard({
                 e.stopPropagation();
                 onSelect(expedition);
               }}
-              className={`p-2.5 rounded-xl border transition-all scale-interact ${
+              className={`p-2.5 rounded-xl border transition-all btn-bounce ${
                 isLight 
                   ? 'bg-sky-50 hover:bg-sky-100 border-sky-200 text-sky-800' 
                   : 'bg-white/5 hover:bg-white/10 border-white/10 text-slate-200 hover:text-cyan-300'
@@ -165,12 +157,13 @@ export default function ExpeditionCard({
               <ArrowUpRight className="w-4 h-4" />
             </button>
 
+            {/* Bouncy Pop Booking Button */}
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 onBook(expedition);
               }}
-              className="px-4 py-2.5 rounded-xl font-display font-bold text-xs sm:text-sm bg-gradient-to-r from-sky-500 via-cyan-400 to-teal-400 text-slate-950 shadow-[0_4px_16px_rgba(14,165,233,0.35)] hover:shadow-[0_6px_22px_rgba(14,165,233,0.6)] transition-all scale-interact"
+              className="px-4 py-2.5 rounded-xl font-display font-bold text-xs sm:text-sm bg-gradient-to-r from-sky-500 via-cyan-400 to-teal-400 text-slate-950 shadow-md hover:shadow-lg transition-all btn-bounce"
             >
               Book Dive
             </button>
